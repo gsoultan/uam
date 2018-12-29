@@ -2,6 +2,7 @@ package app
 
 import (
 	"fmt"
+	"github.com/gsoultan/uam/config"
 	"github.com/jinzhu/gorm"
 )
 

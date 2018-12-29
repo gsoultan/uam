@@ -1,7 +1,7 @@
 package main
 
 import (
-	"User/app"
+	"github.com/gsoultan/uam/app"
 )
 
 func main() {

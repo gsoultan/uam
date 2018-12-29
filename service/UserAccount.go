@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/gsoultan/uam/domain"
-	g "github.com/gsoultan/uam/repository"
+	g "github.com/gsoultan/uam/repository/gorm"
 	"github.com/gsoultan/uam/utils"
 	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"
