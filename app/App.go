@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func LoadConfiguration(config *config.Database) error {
+func LoadDatabaseConfig(config *config.Database) error {
 	if err := godotenv.Load(); err != nil {
 		log.Println("File .env not found, reading configuration from ENV")
 		return err
