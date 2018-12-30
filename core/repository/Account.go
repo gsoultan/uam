@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/gsoultan/uam/domain"
+import "github.com/gsoultan/uam/core/domain"
 
 type Account interface {
 	Create(account *domain.Account) error

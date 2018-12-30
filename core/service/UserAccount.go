@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/gsoultan/uam/domain"
-	g "github.com/gsoultan/uam/repository/gorm"
-	"github.com/gsoultan/uam/utils"
+	"github.com/gsoultan/uam/core/domain"
+	g "github.com/gsoultan/uam/core/repository/gorm"
+	"github.com/gsoultan/uam/core/utils"
 	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -19,8 +19,8 @@ type Login struct {
 
 func (this *userAccount) Registration(user domain.User) error {
 	db := this.db.Begin()
-	userRepository := g.NewGormUser(db)
-	accountRepository := g.NewGormAccount(db)
+	userRepository := g.NewUserGorm(db)
+	accountRepository := g.NewAccountGorm(db)
 
 	if err := accountRepository.Create(&user.Account); err != nil {
 		db.Rollback()
@@ -47,7 +47,7 @@ func (this *userAccount) Registration(user domain.User) error {
 func (this *userAccount) Login(login Login) (bool, domain.User, error) {
 	pass := []byte(login.Password)
 
-	userRepository := g.NewGormUser(this.db)
+	userRepository := g.NewUserGorm(this.db)
 	user, err := userRepository.FindByUserName(login.UserName)
 	if err != nil {
 		return false, domain.User{}, err
@@ -72,7 +72,7 @@ func (this *userAccount) Login(login Login) (bool, domain.User, error) {
 }
 
 func (this *userAccount) LogOut(token string) (bool, error) {
-	userRepository := g.NewGormUser(this.db)
+	userRepository := g.NewUserGorm(this.db)
 	user, err := userRepository.FindByToken(token)
 	if err != nil {
 		return false, err
@@ -86,7 +86,7 @@ func (this *userAccount) LogOut(token string) (bool, error) {
 }
 
 func (this *userAccount) Authenticate(token string) (bool, error) {
-	userRepository := g.NewGormUser(this.db)
+	userRepository := g.NewUserGorm(this.db)
 	user, err := userRepository.FindByToken(token)
 	if err != nil {
 		return false, err

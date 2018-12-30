@@ -1,8 +1,8 @@
 package gorm
 
 import (
-	"github.com/gsoultan/uam/domain"
-	"github.com/gsoultan/uam/repository"
+	"github.com/gsoultan/uam/core/domain"
+	"github.com/gsoultan/uam/core/repository"
 	"github.com/jinzhu/gorm"
 )
 

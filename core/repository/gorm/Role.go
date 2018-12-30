@@ -1,7 +1,8 @@
 package gorm
 
 import (
-	"github.com/gsoultan/uam/domain"
+	"github.com/gsoultan/uam/core/domain"
+	"github.com/gsoultan/uam/core/repository"
 	"github.com/jinzhu/gorm"
 )
 
@@ -50,4 +51,10 @@ func (this *role) FindByID(id int64) (domain.Role, error) {
 		return domain.Role{}, err
 	}
 	return role, nil
+}
+
+func NewRoleGorm(db *gorm.DB) repository.Role {
+	return &role{
+		db: db,
+	}
 }

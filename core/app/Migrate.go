@@ -2,7 +2,7 @@ package app
 
 import (
 	"fmt"
-	"github.com/gsoultan/uam/domain"
+	"github.com/gsoultan/uam/core/domain"
 	"github.com/jinzhu/gorm"
 )
 

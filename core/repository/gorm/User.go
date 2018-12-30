@@ -1,8 +1,8 @@
 package gorm
 
 import (
-	"github.com/gsoultan/uam/domain"
-	"github.com/gsoultan/uam/repository"
+	"github.com/gsoultan/uam/core/domain"
+	"github.com/gsoultan/uam/core/repository"
 	"github.com/jinzhu/gorm"
 )
 
@@ -96,7 +96,7 @@ func (this *user) FindByID(id int64) (domain.User, error) {
 	return user, nil
 }
 
-func NewGormUser(db *gorm.DB) repository.User {
+func NewUserGorm(db *gorm.DB) repository.User {
 	return &user{
 		db: db,
 	}

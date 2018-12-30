@@ -2,7 +2,7 @@ package app
 
 import (
 	"github.com/caarlos0/env"
-	"github.com/gsoultan/uam/config"
+	"github.com/gsoultan/uam/core/config"
 	"github.com/joho/godotenv"
 	"log"
 )
